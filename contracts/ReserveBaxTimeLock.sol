@@ -32,6 +32,8 @@ contract ReserveBaxTimeLock is Owned {
 
 	constructor(address _erc20address, uint _blockRangeForWithdraw, uint _percentPerRange) public {
 		require(_erc20address != address(0));
+		require(_blockRangeForWithdraw > 0);
+		require(_percentPerRange > 0);
 		blockRangeForWithdraw = _blockRangeForWithdraw;
 		percentPerRange = _percentPerRange;
 		erc20address = _erc20address;
